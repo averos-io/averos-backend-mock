@@ -1,0 +1,10 @@
+{
+
+  "/auth/register": "/users",
+  "/auth/users/:id": "/users/:id",
+  "/uapi/users/:id": "/users/:id",
+  
+  "/api/:resource/": "/:resource",
+  "/api/:resource/:id": "/:resource/:id"
+ 
+}
