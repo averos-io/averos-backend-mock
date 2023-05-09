@@ -35,6 +35,11 @@ SERVER.use((req, res, next) => {
       body.id = uuidv4();
       body.token = tokenGen();
       body._id = body.id;
+
+      // Pre-validate the user
+      body.isEmailVerified = true;
+      body.accountVerified = true;
+      body.isAccountLocked = false;
       // If the method is a POST echo back the name from request body
       req.body = body;
       next();
@@ -94,6 +99,15 @@ SERVER.use((req, res, next) => {
 SERVER.get('/auth/users/email/:email', (req, res) => dbUtils.checkEmailExists(req, res));
 SERVER.get('/auth/users/:userName', (req, res) => dbUtils.checkUserNameExists(req, res));
 SERVER.post('/auth/login', (req, res) => dbUtils.login(req, res));
+
+// Refresh Token
+SERVER.post('/auth/rt', (req, res) => dbUtils.refreshToken(req, res));
+
+// Verify Account
+SERVER.post('/auth/vaccount', (req, res) => dbUtils.verifyAccount(req, res));
+
+// Logout 
+SERVER.post('/auth/logout', (req, res) => dbUtils.logout(req, res));
 
 /// handle the special deletion case: json-server bug https://github.com/typicode/json-server/pull/756
 SERVER.delete('/api/todoareas/:id', (req, res) => dbUtils.deleteToDoArea(req, res));

@@ -2,7 +2,7 @@ const router = require('./shared').ROUTER;
 
 
 
-login = (req, res) => {
+const login = (req, res) => {
 
   userName = req.body.userName;
   email = req.body.email;
@@ -35,10 +35,11 @@ login = (req, res) => {
                                         userName: user.userName,
                                         email: user.email,
                                         firstName: user.firstName,
-                                        isEmailVerified: true,
+                                        isEmailVerified: user.isEmailVerified,
+                                        accountVerified: user.accountVerified,
                                         image: user.image,
                                         profileLanguage: user.profileLanguage,
-                                        isAccountLocked: false
+                                        isAccountLocked: user.isAccountLocked
                                     }
                             }
                   )
@@ -47,9 +48,9 @@ login = (req, res) => {
      res.status( 401 ).send( "Wrong Password!\n" )
     return
     }
-  }
+}
 
-checkUserNameExists = (req, res) => {
+const checkUserNameExists = (req, res) => {
 
     param = req.params?.userName
   
@@ -66,10 +67,9 @@ checkUserNameExists = (req, res) => {
       return;
     }
    
-  }
+ }
 
-
-checkEmailExists = (req, res) => {
+const checkEmailExists = (req, res) => {
 
     param = req.params?.email
   
@@ -86,9 +86,9 @@ checkEmailExists = (req, res) => {
       res.jsonp({exists: false});
       return;
     }
-  }
+}
 
-deleteToDoArea =  (req, res) => {
+const deleteToDoArea =  (req, res) => {
 
   param = req.params?.id
 
@@ -123,9 +123,7 @@ deleteToDoArea =  (req, res) => {
   }
 }
 
-
-
-deleteToDoTask =  (req, res) => {
+const deleteToDoTask =  (req, res) => {
 
   param = req.params?.id
 
@@ -151,21 +149,24 @@ deleteToDoTask =  (req, res) => {
   }
 }
 
+const refreshToken = (req, res) => {
+ 
+}
+
+const verifyAccount = (req, res) => {
+}
+
+const logout = (req, res) => {
+  return res.status(200).send({msg: "A user signed out!"});
+}
 
 module.exports = {
-  login: (req, res) => {
-    return login(req, res);
-  },
-  checkUserNameExists: (req, res) => {
-    return checkUserNameExists(req, res);
-  },
-  checkEmailExists: (req, res) => {
-    return checkEmailExists(req, res);
-  },
-  deleteToDoArea: (req, res) => {
-    return deleteToDoArea(req, res);
-  },
-  deleteToDoTask: (req, res) => {
-    return deleteToDoTask(req, res);
-  }
+  login,
+  checkUserNameExists,
+  checkEmailExists,
+  refreshToken,
+  verifyAccount,
+  logout,
+  deleteToDoArea,
+  deleteToDoTask
 }

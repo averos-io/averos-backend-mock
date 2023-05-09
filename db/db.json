@@ -1,8 +1,37 @@
 {
   "users": [
+    {
+      "userName": "hou",
+      "email": "hou@hou.hou",
+      "password": "houcemL8",
+      "birthdate": "",
+      "confirmPassword": "",
+      "firstName": "hou",
+      "lastName": "hou",
+      "gender": null,
+      "city": null,
+      "id": "9c20aa36-fcee-4e28-a0e1-20757884d04f",
+      "token": "e5kzt4ps91jv652flxvsmptg7rmn9r0tout4zttdof",
+      "_id": "9c20aa36-fcee-4e28-a0e1-20757884d04f"
+    },
+    {
+      "userName": "test",
+      "email": "test@test.test",
+      "password": "houcemL8",
+      "birthdate": "",
+      "confirmPassword": "",
+      "firstName": "test",
+      "lastName": "test",
+      "gender": null,
+      "city": "Argentina",
+      "id": "c4109d02-61dc-43fd-a62d-eec941a513d8",
+      "token": "4ha5nu0li2t1s9amz8jzl9mrx1mxdq3mdbp2e307x96",
+      "_id": "c4109d02-61dc-43fd-a62d-eec941a513d8",
+      "isEmailVerified": true,
+      "accountVerified": true,
+      "isAccountLocked": false
+    }
   ],
-  "toDoAreas": [
-  ],
-  "toDoTasks": [
-  ]
+  "toDoAreas": [],
+  "toDoTasks": []
 }
