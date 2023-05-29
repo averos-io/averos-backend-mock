@@ -150,14 +150,14 @@ const deleteToDoTask =  (req, res) => {
 }
 
 const refreshToken = (req, res) => {
- 
+ return res.status(461).send("Wrong Password!");
 }
 
 const verifyAccount = (req, res) => {
 }
 
 const logout = (req, res) => {
-  return res.status(200).send({msg: "A user signed out!"});
+  return res.status(200).send("A user signed out!");
 }
 
 module.exports = {
