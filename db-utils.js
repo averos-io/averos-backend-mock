@@ -10,8 +10,7 @@ const login = (req, res) => {
   var user;
   // login with userName/password
     if (userName){
-      user = router.db.get('users').value().find(e => e.userName===userName)
-
+       user = router.db.get('users').value().find(e => e.userName===userName)
       if (!user){
         res.status( 401 ).send( 'No registered user found with the given userName!\n' );
         return;
@@ -157,7 +156,7 @@ const verifyAccount = (req, res) => {
 }
 
 const logout = (req, res) => {
-  return res.status(200).send("A user signed out!");
+  return res.status(200).send({err: "You signed out!"});
 }
 
 module.exports = {
