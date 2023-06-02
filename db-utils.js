@@ -152,6 +152,11 @@ const refreshToken = (req, res) => {
  return res.status(461).send("Wrong Password!");
 }
 
+const resetPassword = (req, res) => {
+  return res.status(461).send("This feature is not implemented!");
+ }
+ 
+
 const verifyAccount = (req, res) => {
 }
 
@@ -164,6 +169,7 @@ module.exports = {
   checkUserNameExists,
   checkEmailExists,
   refreshToken,
+  resetPassword,
   verifyAccount,
   logout,
   deleteToDoArea,

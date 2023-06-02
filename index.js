@@ -103,6 +103,7 @@ SERVER.post('/auth/login', (req, res) => dbUtils.login(req, res));
 // Refresh Token
 SERVER.post('/auth/rt', (req, res) => dbUtils.refreshToken(req, res));
 
+SERVER.post('/auth/rrp', (req, res) => dbUtils.resetPassword(req, res));
 // Verify Account
 SERVER.post('/auth/vaccount', (req, res) => dbUtils.verifyAccount(req, res));
 
